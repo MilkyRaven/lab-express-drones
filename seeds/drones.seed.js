@@ -1,9 +1,7 @@
 // Iteration #1
 const mongoose = require("mongoose")
 const Drone = require("../models/Drone.model")
-
-const MONGO_URI = "mongodb://localhost:27017/day_7_project"
-
+const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/lab-express-drones";
 const drones = [
     {
         name: "The Zap 3000",
@@ -25,7 +23,7 @@ const drones = [
 const createDrones = async function() {
     try{
         const connect = await mongoose.connect(MONGO_URI)
-        console.log(`Connected to database: ${connect.connections[0].name}`)
+        //console.log(`Connected to database: ${connect.connections[0].name}`)
         //creating the drones
         const dbDrones = await Drone.create(drones)
         console.log(`${dbDrones.length} - drones created `)
