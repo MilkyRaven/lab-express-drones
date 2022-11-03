@@ -58,11 +58,11 @@ router.post('/drones/:droneId/edit', async (req, res, next) => {
     console.log(err)}
 });
 
-router.post('/drones/:id/delete', async (req, res, next) => {
+router.post('/drones/:droneId/delete', async (req, res, next) => {
   // Iteration #5: Delete the drone
   const droneId = req.params.droneId
   try {
-    await Book.findByIdAndDelete(droneId)
+    await Drone.findByIdAndDelete(droneId)
     console.log("Drone deleted!")
     res.redirect("/drones")
   }
