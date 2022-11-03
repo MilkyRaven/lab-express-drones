@@ -8,7 +8,7 @@ router.get('/drones', async (req, res, next) => {
   // Iteration #2: List the drones
   try {
     const dbDrones = await Drone.find({})
-    console.log(dbDrones)
+    //console.log(dbDrones)
     res.render("drones/list", {dbDrones})
   }
   catch(err) {
@@ -48,10 +48,10 @@ router.post('/drones/:droneId/edit', async (req, res, next) => {
   // Iteration #4: Update the drone
   const drone = req.body;
   const droneId = req.params.droneId;
-  console.log('this is the IDDDD', droneId)
+  //console.log('this is the IDDDD', droneId)
   try {
       const test = await Drone.findByIdAndUpdate(droneId, drone)
-      console.log('this is updated DRONE', test)
+      //console.log('this is updated DRONE', test)
       res.redirect("/drones")
   }
   catch(err){
@@ -63,7 +63,7 @@ router.post('/drones/:droneId/delete', async (req, res, next) => {
   const droneId = req.params.droneId
   try {
     await Drone.findByIdAndDelete(droneId)
-    console.log("Drone deleted!")
+    //console.log("Drone deleted!")
     res.redirect("/drones")
   }
   catch(err) {
