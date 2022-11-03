@@ -24,9 +24,14 @@ router.get('/drones/create', (req, res, next) => {
   catch(err){console.log(err)}
 });
 
-router.post('/drones/create', (req, res, next) => {
+router.post('/drones/create', async (req, res, next) => {
   // Iteration #3: Add a new drone
-  // ... your code here
+  try{
+    const newDrone = await Drone.create(req.body)
+    console.log("drone created!🚀")
+    res.redirect("/drones")
+  }
+  catch(err){console.log(err)}
 });
 
 router.get('/drones/:id/edit', (req, res, next) => {
