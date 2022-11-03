@@ -1,7 +1,7 @@
 // Iteration #1
 const { Schema, model } = require("mongoose");
 
-const droneSchema = newSchema(
+const droneSchema = new Schema(
     {
        name: {
         type: String
